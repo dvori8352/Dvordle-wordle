@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dvordle-wordle</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 
+   viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>">
+</head>
+
+<body>
+
+    <div id="board">
+        <div id="name">Dvordle-wordle</div>
+        <div class="row" id="r1">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+
+        </div>
+        <div class="row" id="r2">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+
+        </div>
+        <div class="row" id="r3">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+
+        </div>
+        <div class="row" id="r4">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+
+        </div>
+        <div class="row" id="r5">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+
+        </div>
+        <div class="row" id="r6">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+            <input type="text" maxlength="1" class="bag">
+
+        </div>
+        <button>בדוק אותי</button>
+    </div>
+
+    <div id="zchut"><a href="enter.html">🔮games page</a><br>כל הזכויות שמורות @ דבורי<br> </div>
+    <div id="v1">
+        <div id="v2">הצלחת!
+            <div id="v3">יפה מאוד!!! <br></div>
+            <div id="vic"></div>
+            <button onclick="location.reload()">משחק חדש</button>
+
+        </div>
+    </div>
+    <div id="hello" dir="rtl">שלום לך </div>
+</body>
+<style>
+    a {
+        color: white;
+        background-color: black;
+        padding: 5px;
+        margin-left: 120px;
+        border-radius: 15px;
+        text-decoration: none;
+    }
+
+    #hello {
+        background-image: linear-gradient(rgb(249, 69, 159), rgb(180, 44, 238), rgb(161, 24, 134));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-size: 40px;
+        position: absolute;
+        top: 260px;
+        right: 10px;
+        direction: "rtl";
+
+    }
+
+    #v1 {
+        position: fixed;
+        display: none;
+        background-color: rgb(78, 6, 63);
+        color: white;
+        top: 10%;
+        left: 22%;
+        padding: 170px;
+        font-size: 50px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        border: 6px lightcyan solid;
+        border-style: double;
+        border-radius: 60px;
+        margin-top: 10px;
+    }
+
+    #v3 {
+        color: rgb(243, 85, 222);
+        font-size: 80px;
+    }
+
+    body {
+        background-color: rgb(239, 217, 242);
+        background-image: url("תמונות/y.png");
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        height: 100vh;
+    }
+
+    .bag {
+        border-radius: 150%;
+        border: 2px solid rgb(193, 193, 231);
+        margin: 0.5%;
+        height: 80px;
+        width: 80px;
+        background-color: rgb(239, 217, 242);
+        font-size: 40px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 3px -2px 10px rgb(157, 200, 207), -6px -2px 20px rgb(217, 225, 237);
+    }
+
+    #zchut {
+        position: absolute;
+        bottom: 18px;
+        right: 50px;
+        color: rgb(250, 227, 241);
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    #board {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button {
+        margin-top: 20px;
+        background-color: rgb(234, 203, 240);
+        border: 1px rgb(203, 16, 138) solid;
+        border-radius: 20px;
+        padding: 10px;
+        color: rgb(203, 16, 138);
+    }
+
+    #name {
+        background-image: linear-gradient(rgb(30, 228, 231), rgb(213, 110, 242), rgb(223, 96, 204));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-size: 90px;
+        font-weight: bold;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotateX(0deg);
+        }
+
+        50% {
+            transform: rotateX(90deg);
+        }
+
+        100% {
+            transform: rotateX(0deg);
+        }
+
+    }
+
+    .flip {
+        animation: rotate 1.5s ease;
+    }
+</style>
+<script>
+    let nownn = JSON.parse(localStorage.getItem("now"))
+    let users = JSON.parse(localStorage.getItem("alluser")) || []
+
+    if (nownn === null) {
+        nownn = {
+            name: "עוד לא הכנסת!!",
+            pass: "עוד לא בחרת!!",
+            times: 0
+        }
+    }
+    let t = document.getElementById("hello")
+    t.innerHTML += nownn.name + "," + "<br>" + " טוב לראות אותך פה:)";
+    const allbags = document.getElementsByClassName("bag");
+    let index = 0;
+    let word = "";
+    const words = [
+        "דבורי", "בדיחה", "שרשרת", "מחלבה", "צפרדע", "קופסה", "חונקת", "רצופה",
+        "מחלקה", "מחשבה", "שאננה", "קליפה", "מסלול", "עיתון", "כוסית", "גבינה",
+        "מלונה", "חביתה", "פסנתר", "גיטרה", "פריקה", "מצלמה", "חולצה", "מגפים",
+        "טבעות", "שולחן", "מנורה", "מקלדת", "מחברת", "ציפור", "ארנבת", "עפולה",
+        "נתניה", "מדרכה", "מרפסת", "בקבוק", "תמונה", "כפיתה", "מסוכן", "מושלם",
+        "תינוק", "חיילת", "ספריה", "ספינה", "רכבות", "שמיכה", "קריאה", "חולית",
+        "קיבוץ", "מושבה", "פרחים", "גינות", "אצילה", "מדפסת", "מספרי", "דיילת",
+        "חובשת", "פריחה", "עפרון", "מחבוא", "משחקת", "בלילה", "גלידה", "חליפה"
+    ];
+    const victorySound = new Audio('s/n.m4a')
+    const check = document.querySelector("button");
+    let today = new Date().toISOString().slice(0, 10);
+    for (let k = 0; k < allbags.length; k++) {
+        allbags[k].oninput = function () {
+            if (allbags[k].value.length === 1 && allbags[k + 1])
+                allbags[k + 1].focus();
+        }
+    }
+    function closee() {
+        let usernow = users.findIndex(u => u.name === nownn.name)
+        if (usernow != -1)
+            users[usernow] = nownn;
+        for (let j = 5; j < 30; j++) {
+            allbags[j].disabled = true;
+        }
+        word = words[Math.floor(Math.random() * words.length)];
+        allbags[0].focus();
+        if (nownn.lastday === undefined) { nownn.lastday = today; nownn.amount = 0 }
+        if (today === nownn.lastday) {
+            if (Number(nownn.amount) >= 5) {
+                alert("הגעת למכסה היומית... שמחים שנהנית אבל תעצור כדי שלא יימאס לך     (או שתיכנס בקלות רבה משם משתמש אחר)")
+                for (let j = 0; j < 30; j++) {
+            allbags[j].disabled = true;
+        }
+                return;
+            }
+            nownn.amount++;
+        }
+        else {
+            nownn.lastday = today; nownn.amount = 1
+        }
+        localStorage.setItem("now", JSON.stringify(nownn))
+        users[usernow] = nownn
+        localStorage.setItem("alluser", JSON.stringify(users))
+    }
+    onload = closee;
+    const v1 = document.getElementById("v1");
+    const vic = document.getElementById("vic");
+    function checkWord() {
+        let count = 0;
+        victorySound.play();
+        for (let u = 0; u < 5; u++) {
+            if (allbags[index + u].value.length != 1) {
+                alert("חובה למלא את המילה כולה")
+                return;
+            }
+        }
+        for (let i = 0; i < 5; i++) {
+            allbags[index].classList.add("flip")
+            allbags[index].style.animationDelay = i * 0.2 + "s"
+            if (allbags[index].value === word[i]) {
+                allbags[index].style.backgroundColor = "#4ade80";
+                count++; allbags[index].disabled = true
+            }
+            else if (word.includes(allbags[index].value)) {
+                allbags[index].style.backgroundColor = "#facc15";
+                allbags[index].disabled = true
+            }
+            else { allbags[index].style.backgroundColor = "#94a3b8"; allbags[index].disabled = true };
+            index++;
+        }
+        if (count === 5) {
+            // if (nown.times === null)
+            //     nown.times=0
+            nownn.times = Number(nownn.times) + 1
+            vic.innerHTML = 'עד כה הצלחת ' + nownn.times + '<br>' +
+                ' משחקים בכניסה הנוכחית:)'; v1.style.display = "block";
+            for (let j = 0; j < 30; j++) {
+                allbags[j].disabled = true;
+            } localStorage.setItem("now", JSON.stringify(nownn))
+
+            return;
+        }
+        if (count !== 5 && index === 30) { alert("הפסדת הפעם.. המילה היתה " + word); location.reload(); }
+        for (let j = 0; j < 5; j++) {
+            allbags[index + j].disabled = false;
+        }
+        allbags[index].focus();
+    }
+    check.onclick = checkWord;
+    window.onkeydown = function (event) {
+        if (event.key === "Enter") {
+            checkWord();
+        }
+    }
+    for (let k = 0; k < allbags.length; k++) {
+        allbags[k].onkeydown = function (event) {
+            if (event.key === "Backspace" && allbags[k].value === "" && allbags[k - 1]) {
+                allbags[k - 1].focus();
+            }
+        }
+    }
+
+
+
+</script>
+
+</html>

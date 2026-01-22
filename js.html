@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המפלצת הרעבה</title>  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 
+   viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>"></head>
+</head>
+
+<body>
+    <div id="all">
+        <div id="scores">score:</div>
+        <div id="live">⚪⚪⚪⚪⚪</div>
+        <button id="d" style=" cursor: url('תמונות/mif.png') 50 50, auto;">הוראות המשחק</button>
+        <button id="refresh" onclick="location.reload()" style=" cursor: url('תמונות/mif.png') 18 18, auto;">שחק
+            שוב!</button>
+        <div id="t"></div>
+    </div>
+    <button id="b" class="bo" style=" cursor: url('תמונות/mif.png') 50 50, auto;">💣</button>
+    <button id="b1" class="bo" style=" cursor: url('תמונות/mif.png') 50 50, auto;">💣</button>
+    <button id="b2" class="bo" style=" cursor: url('תמונות/mif.png') 50 50, auto;">💣</button>
+    <button id="b3" class="bo" style=" cursor: url('תמונות/mif.png') 50 50, auto;">💣</button>
+    <button id="r" style=" cursor: url('תמונות/mif.png') 50 50, auto;" onclick="func()"></button>
+
+</body>
+<style>
+    #all {
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        bottom: 5%;
+        background-color: white;
+        border-radius: 25px;
+        bottom: 5px;
+        padding: 20px;
+        left: 5px;
+
+    }
+
+    body {
+        cursor: url("תמונות/mif.png") 50 50, auto;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(201, 233, 169);
+    }
+
+    #scores {
+        border: 4px solid rgb(63, 119, 7);
+        background-color: rgb(116, 165, 66);
+        padding: 20px;
+        border-radius: 20px;
+        width: 100px;
+        margin: 20px;
+
+    }
+
+    button:active {
+        transform: scale(0.9) rotate(-8deg);
+    }
+
+    #d {
+        border: 4px solid rgb(63, 119, 7);
+        background-color: rgb(116, 165, 66);
+        padding: 20px;
+        border-radius: 20px;
+        width: 100px;
+        margin: 20px;
+    }
+
+    #refresh {
+        border: 4px solid rgb(182, 217, 146);
+        background-color: rgb(99, 131, 68);
+        padding: 25px;
+        border-radius: 20px;
+        margin: 10px;
+        /* position: fixed; */
+        /* bottom: 5px;
+        right: 5px; */
+        z-index: 1000;
+        margin: 20px;
+
+    }
+
+    @keyframes zuz {
+        0%, 100% { top: 50%; left: 50%; }
+        25% { top: 10%; left: 80%; }
+        50% { top: 70%; left: 50%; }
+        75% { top: 20%; left: 10%; }
+    }
+
+    @keyframes zuzblack {
+        0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% { opacity: 0; pointer-events: none; top: -200px; }
+        11%, 19% { opacity: 1; pointer-events: auto; top: 15%; left: 75%; }
+        61%, 69% { opacity: 1; pointer-events: auto; top: 60%; left: 45%; }
+    }
+
+    @keyframes zuzblack1 {
+        0%, 25%, 55%, 100% { opacity: 0; pointer-events: none; top: -200px; }
+        26%, 54% { opacity: 1; pointer-events: auto; top: 20%; left: 20%; }
+    }
+
+    @keyframes zuzblack2 {
+        0%, 45%, 75%, 100% { opacity: 0; pointer-events: none; top: -200px; }
+        46%, 74% { opacity: 1; pointer-events: auto; top: 80%; left: 80%; }
+    }
+
+    @keyframes zuzblack3 {
+        0%, 80%, 100% { opacity: 0; pointer-events: none; top: -200px; }
+        81%, 98% { opacity: 1; pointer-events: auto; top: 50%; left: 15%; }
+    }
+
+    #r {
+        position: absolute;
+        animation: zuz 10s infinite;
+        background-color: rgb(93, 167, 19);
+        color: white;
+        padding: 25px;
+        border: 2px solid rgb(53, 100, 7);
+        border-radius: 200px;
+    }
+
+    #b {
+        position: absolute;
+        font-size: 85px;
+        opacity: 0;
+        background: none;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        animation: zuzblack 10s infinite;
+
+    } #b1 {
+        position: absolute;
+        font-size: 85px;
+        opacity: 0;
+        background: none;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        animation: zuzblack1 15s infinite;
+
+    } #b2 {
+        position: absolute;
+        font-size: 85px;
+        opacity: 0;
+        background: none;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        animation: zuzblack2 20s infinite;
+
+    }
+     #b3 {
+        position: absolute;
+        font-size: 85px;
+        opacity: 0;
+        background: none;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        animation: zuzblack3 8s infinite;
+
+    }
+
+    #t {
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        font-size: 50px;
+        font-weight: 900;
+        color: #ff3333;
+        text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 2px 2px 2px #000;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 30px 60px;
+        border-radius: 50px;
+        border: 5px solid #ff0000;
+        z-index: 2000;
+        pointer-events: none;
+        text-align: center;
+        direction: rtl;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    #live{
+        background-color: rgb(57, 149, 32);
+        padding: 10px;
+        font-size: 30px;
+            border: 4px solid rgb(63, 119, 7);
+        border-radius: 20px;
+        margin: 20px;
+    
+    }
+</style>
+<script>
+    let time = 0;
+    setInterval(() => {
+        time++;
+    }, 1000)
+    let sco = 0;
+    let but = document.getElementById("r");
+    let theScore = document.getElementById("scores");
+    const func = () => {
+        sco++;
+        theScore.innerHTML = "score: " + sco;
+        if (sco === 15) {
+                let darga="";  
+        if(time<=30) darga="אלוף המפלצות המהיר"
+      if(time>30&&time<=60) darga="מומחה חטיפי אנרגיה במהירות בינונית"
+    if(time>60&&time<=90) darga="מאסטר לעניני פצצות"
+    if(time>90) darga="אלוף קור הרוח והסבלנות"
+            document.body.style.backgroundImage = "linear-gradient( to top,#020,#881)";
+            document.body.style.zIndex = 99;
+           document.body.innerHTML = `
+    <div style="color: white; font-size: 80px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100vh;">
+            <div>🥳 הצלחת תוך ${time} שניות 🥳</div>
+            <div style="font-size: 60px; margin-top: 20px;">דרגה: ${darga}</div>
+        </div>
+    <button id="refresh" onclick="location.reload()" style="
+            border: 4px solid rgb(182, 217, 146);
+        background-color: rgb(99, 131, 68);
+        padding: 10px;
+        border-radius: 20px;
+        width: 80px;
+        margin: 10px;
+        position: fixed;
+        bottom: 5px;
+        right: 5px;
+        z-index: 1000;
+    ">שחק שוב!</button>
+`;
+
+ 
+    }}
+    let badsco = 0;
+    let badbut = document.querySelectorAll(".bo");
+    const funcbad = () => {
+        badsco++;
+        if (badsco === 1) {
+            document.getElementById("live").innerText = "⚪⚪⚪⚪";
+        }
+        if (badsco === 2) {
+            document.getElementById("live").innerText = "⚪⚪⚪";
+        } 
+         if (badsco === 3) {
+            document.getElementById("live").innerText = "⚪⚪";
+        } 
+         if (badsco === 4) {
+            document.getElementById("live").innerText = "⚪";
+        }
+        if (badsco === 5) {
+            document.body.style.backgroundImage = "linear-gradient( to top,#020,#881)";
+            document.body.style.zIndex = 99;
+            document.body.innerHTML = `<div style="        color: white;
+        font-size: 100px;
+        display: flex;
+     justify-content: center; 
+    align-items: center; 
+    text-align: center;height: 100vh
+">👾נכשלת תוך ${time}    שניות 👾  </div>
+    <button id="refresh" onclick="location.reload()" style="
+            border: 4px solid rgb(182, 217, 146);
+        background-color: rgb(99, 131, 68);
+        padding: 10px;
+        border-radius: 20px;
+        width: 80px;
+        margin: 10px;
+        position: fixed;
+        bottom: 5px;
+        right: 5px;
+        z-index: 1000;
+    ">שחק שוב!</button>
+`;
+        }
+    }
+ 
+    // badbut.addEventListener("mouseenter", funcbad);
+    const tex = () => {
+        document.getElementById("t").innerText = "האכלת את המפלצת בפצצה והיא גוססת!!"
+        document.getElementById("t").style.transform = " translate(-50%, -50%) scale(1)";
+        setTimeout(() => {
+            document.getElementById("t").style.transform = " translate(-50%, -50%) scale(0)";
+        }, 2000);
+    }
+
+    // badbut.addEventListener("mouseenter", tex);
+
+    let d = document.getElementById("d");
+    const da = () => {
+        document.body.innerHTML = `
+    <div style="
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #c9e9a9 0%, #74a542 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    ">
+        <div style="
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            max-width: 500px;
+            text-align: center;
+            direction: rtl;
+            border: 8px solid #3f7707;
+        ">
+            <h1 style="color: #3f7707; font-size: 40px; margin-top: 0;">👾 איך מאכילים?</h1>
+            <div style="font-size: 18px; line-height: 1.6; color: #333;">
+                <p>המפלצת שלנו <strong>רעבה בטירוף!</strong></p>
+                <p>מניסיון, כדאי להאכיל אותה לפני שהיא תחשוב שהשחקן הוא המנה העיקרית...</p>
+                <p style="background: #ffeded; padding: 10px;">
+                    ⚠️ <strong>זהירות:</strong> אל תתנו לה פצצות, היא רק עוברת לידן והיא מתעצבנת! 5 פצצות והמשחק נגמר.
+                </p>
+                <p>הצליחו להאכיל אותה ב-15 חטיפים כדי לנצח!</p>
+            </div>
+            <button onclick="location.reload()" style="
+                margin-top: 30px;
+                padding: 15px 30px;
+                font-size: 20px;
+                font-weight: bold;
+                color: white;
+                background-color: #74a542;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: transform 0.8s;
+            " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                הבנתי, תביאו לי את המפלצת!
+            </button>
+        </div>
+    </div>
+    `;
+    }
+    document.getElementById("d").addEventListener("click", da)
+       badbut.forEach(bom => {
+            bom.addEventListener("mouseenter", funcbad);
+    bom.addEventListener("mouseenter", tex);
+
+    });
+</script>
+
+</html>
